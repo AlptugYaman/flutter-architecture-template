@@ -32,7 +32,8 @@ class CoreDio with DioMixin implements Dio, ICoreDio {
     switch (response.statusCode) {
       case HttpStatus.ok:
       case HttpStatus.accepted:
-        final model = _responseParser<R>(parseModel, _responseParser);
+   //     final model = _responseParser<R>(parseModel, _responseParser);
+        final model = _responseParser<R>(parseModel, response);
         return ResponseModel<R>(data: model);
       default:
         return ResponseModel(error: BaseError("message"));
